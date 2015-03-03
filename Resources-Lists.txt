@@ -1,0 +1,18 @@
+List of Resources Used for Project 4 Web Optimization
+-----------------------------------------------------
+Frontend Web Nanodegree Project-Siska Ko
+---------------------------------------
+
+Download python and documentation (https://www.python.org/)
+ngrok documentation(https://ngrok.com/docs)
+Python 3's http server command is different than what's in readme (http://stackoverflow.com/questions/7943751/what-is-the-python3-equivalent-of-python-m-simplehttpserver)
+Pagespeed Insights (https://developers.google.com/speed/pagespeed/insights/)
+Basics of Google Font API (https://css-tricks.com/snippets/css/basics-of-google-font-api/)
+Image Optimizer (http://www.imageoptimizer.net/Pages/Home.aspx)
+Installed Page Speed Chrome Extension
+Optimize CSS Delivery (https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery)
+Optimizing Text (https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/optimize-encoding-and-transfer)
+How to Optimize Your Site using Gzip (http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/)
+Online Gzip Test (http://www.gidnetwork.com/tools/gzip-test.php)
+Reduce the size above fold content (https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent#SpecifyCharsetEarly)
+
