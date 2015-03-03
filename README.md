@@ -1,6 +1,56 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+This is project 4 of Udacity Frontend Web Nano Degree project. The objective is to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible. The goals are:
+1. Optimize index.html to achieve page score of 90 or higher.
+1. Modify main.js for pizza web site so the time to resize pissas is less than 5 ms.
+1. Modidy main.js for pizza web site so the frame rate when scrolling is 60 fps.
+
+### How to run 
+### List of optimizations done for this project
+
+#### Optimization of index.html to achieve page score of 90 or higher.
+
+What I did to optimize the index.html page:
+*1. Took out the link to google fonts to eliminate network request. The link also did not have http on it, so it took a very long time for the page to load since it couldn't find it.
+*2. Added the reference to the font faces directly as inline CSS.
+*3. For print.css, I added media=print so it is only requested during print.
+*4. The google analytic javascript file call and the google analytic script can be loaded asynchronously so it will not parse blocking. Added "asynch" in the tags.
+*5. I modified the style.css. I combined multiple definitions to save character bytes. I also changed a couple references such as footer span to a class, since it's simpler and less costly.
+*6. Since the style.css is pretty small, I put everything as an inline style to eliminate network request.
+*7. I created a 100 px image for the pizzeria thumbnail and compressed it.
+*8. I minified index.html. The development's version will be index-dev.html.
+
+#### Modification of main.js so the time to resize pizzas is less than 5 ms
+
+I changed changePizzaSizes(size) function:
+* changed all selectors of .querySelector or .querySelectorAll to either getElementById or getElementsbyClassName since they are faster
+* put the result of most of the selector to a variable outside the loop so the selector does not have to get run again and again. Such as pizzaLength to get document.getElementsByClassName("randomPizzaContainer").length
+* took out all the variables that do not have to be inside the loop outside the loop so they are not repeated for each pizza
+* took out all the functions that do not have to be run inside the loop outside. 
+
+I took out sizeSwitcher(size) function from determineDx(size) as a stand alone function. This function needs to be only run once to find the new size outside the loop in the changePizzaSizes(size) function
+
+DetermineDx(size) function is not used:
+* To calculate the new width per pizza, we just need to find what the new size should be, either 0.25, 0.3333, or 0.5 relative to the window width. We do not need to loop
+  through to find out what is the current width and add it back on. This is a simple calculation that does not need function, just assign the result to a variable called newwidth outside the loop.
+
+
+#### Modification of main.js to get frame rate of 60 fps while scrolling
+
+I modified the the DOMContentLoaded function in the add event listener:
+* changed .querySelector to getElementById for movingpizza1. This is only need to be done once, so I moved it outside the loop.
+* since there are only 5 phases for 8 columns, we do not need to load 200 objects at once. 40 should be enough. I changed the quantifier in the for loop from 200 to 40.
+
+I modified the updatePositions() function:
+* there are only 5 unique phases, so we do not need to calculate the phase for each 40 objects. I created an array called phases for those 5 unique phases.
+* the body's scrolltop just need to be found once, so I moved that into a variable outside the loop.
+
+### Resources Used
+All resources that I used are in the Resources-Lists.txt
+
+### Student's Info
+Siska Ko<br>
+siska.ko@gmail.com
 
 To get started, check out the repository, inspect the code,
 
@@ -72,48 +122,4 @@ Feeling uninspired by the portfolio? Here's a list of cool portfolios I found af
 * <a href="http://www.roxannecook.com/">http://www.roxannecook.com/</a>
 * <a href="http://www.84colors.com/portfolio.html">http://www.84colors.com/portfolio.html</a>
 
-### Optimizations Done
 
-#### Optimization of index.html to achieve page score of 90 or higher.
-
-What I did to optimize the index.html page:
-1. Took out the link to google fonts to eliminate network request. The link also did not have http on it, so it took a very long time for the page to load since it couldn't find it.
-2. Added the reference to the font faces directly as inline CSS.
-3. For print.css, I added media=print so it is only requested during print.
-4. The google analytic javascript file call and the google analytic script can be loaded asynchronously so it will not parse blocking. Added "asynch" in the tags.
-5. I modified the style.css. I combined multiple definitions to save character bytes. I also changed a couple references such as footer span to a class, since it's simpler and less costly.
-6. Since the style.css is pretty small, I put everything as an inline style to eliminate network request.
-7. I created a 100 px image for the pizzeria thumbnail and compressed it.
-7. I minified index.html. The development's version will be index-dev.html.
-
-#### Modification of main.js so the time to resize pizzas is less than 5 ms
-
-I changed changePizzaSizes(size) function:
-* changed all selectors of .querySelector or .querySelectorAll to either getElementById or getElementsbyClassName since they are faster
-* put the result of most of the selector to a variable outside the loop so the selector does not have to get run again and again. Such as pizzaLength to get document.getElementsByClassName("randomPizzaContainer").length
-* took out all the variables that do not have to be inside the loop outside the loop so they are not repeated for each pizza
-* took out all the functions that do not have to be run inside the loop outside. 
-
-I took out sizeSwitcher(size) function from determineDx(size) as a stand alone function. This function needs to be only run once to find the new size outside the loop in the changePizzaSizes(size) function
-
-DetermineDx(size) function is not used:
-* To calculate the new width per pizza, we just need to find what the new size should be, either 0.25, 0.3333, or 0.5 relative to the window width. We do not need to loop
-  through to find out what is the current width and add it back on. This is a simple calculation that does not need function, just assign the result to a variable called newwidth outside the loop.
-
-
-#### Modification of main.js to get frame rate of 60 fps while scrolling
-
-I modified the the DOMContentLoaded function in the add event listener:
-* changed .querySelector to getElementById for movingpizza1. This is only need to be done once, so I moved it outside the loop.
-* since there are only 5 phases for 8 columns, we do not need to load 200 objects at once. 40 should be enough. I changed the quantifier in the for loop from 200 to 40.
-
-I modified the updatePositions() function:
-* there are only 5 unique phases, so we do not need to calculate the phase for each 40 objects. I created an array called phases for those 5 unique phases.
-* the body's scrolltop just need to be found once, so I moved that into a variable outside the loop.
-
-### Resources Used
-All resources that I used are in the Resources-Lists.txt
-
-### Student's Info
-Siska Ko<br>
-siska.ko@gmail.com
