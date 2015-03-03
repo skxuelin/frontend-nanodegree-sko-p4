@@ -3,7 +3,7 @@
 This is project 4 of Udacity Frontend Web Nano Degree project. The objective is to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible. The goals are:
 * Optimize index.html to achieve page score of 90 or higher.
 * Modify main.js for pizza web site so the time to resize pissas is less than 5 ms.
-* Modidy main.js for pizza web site so the frame rate when scrolling is 60 fps.
+* Modify main.js for pizza web site so the frame rate when scrolling is 60 fps.
 
 ### How to run 
 
