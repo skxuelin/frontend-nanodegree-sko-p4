@@ -10,7 +10,7 @@ This is project 4 of Udacity Frontend Web Nano Degree project. The objective is 
 #### Option 1. Locally on your desktop
 
 1. Check out the repository
-1. Double click index.html to open the portfolio project on your browser. You cannot measure the page speed this way. See the next section to do setup a local web server and expose it to the internet.
+1. Double click index.html to open the portfolio project on your browser. You cannot measure the page speed this way. See the next section to setup a local web server and expose it to the internet.
 1. To see the pizza's website, from the portfolio page, click on the link to Cam's Pizzeria. Open the console in the develooper tool to see the output of different timers.
 
 #### Option 2. Setup a local web server using python and expose it to the internet
@@ -33,7 +33,7 @@ Follow the instructions cut and pasted from the instructors for this class:
   ```
 
 1. Copy the public URL ngrok gives you and try running it through PageSpeed Insights to see the page score. [More on integrating ngrok, Grunt and PageSpeed.](http://www.jamescryer.com/2014/06/12/grunt-pagespeed-and-ngrok-locally-testing/)
-1. To see the pizza's website, from the portfolio page, click on the link to Cam's Pizzeria. Open the console in the develooper tool to see the output of different timers.
+1. To see the pizza's website, from the portfolio page, click on the link to Cam's Pizzeria. Open the console in the developer tool to see the output of different timers.
 
 ### List of optimizations done for this project
 
@@ -57,7 +57,7 @@ I changed changePizzaSizes(size) function:
 * took out all the variables that do not have to be inside the loop outside the loop so they are not repeated for each pizza.
 * took out all the functions that do not have to be run inside the loop outside. 
 
-I took out sizeSwitcher(size) function from determineDx(size) as a stand alone function. This function needs to be only run once to find the new size outside the loop in the changePizzaSizes(size) function
+I took out sizeSwitcher(size) function from determineDx(size) as a stand alone function. This function only needs to be run once to find the new size outside the loop in the changePizzaSizes(size) function.
 
 DetermineDx(size) function is not used:
 * To calculate the new width per pizza, we just need to find what the new size should be, either 0.25, 0.3333, or 0.5 relative to the window width. We do not need to loop
