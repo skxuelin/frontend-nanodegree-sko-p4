@@ -1,6 +1,7 @@
 ## Website Performance Optimization portfolio project
 
-This is project 4 of Udacity Frontend Web Nano Degree project. The objective is to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible. The goals are:
+This is project 4 of Udacity Frontend Web Nano Degree project. The objective is to optimize this online portfolio for speed. In particular, optimize the critical rendering path and make this page render as quickly as possible. The original files for this project is located at the [Udacity's GitHub Repository for Mobile Portfolio](https://github.com/udacity/frontend-nanodegree-mobile-portfolio)<br>
+The goals are:
 * Optimize index.html to achieve page score of 90 or higher.
 * Modify main.js for pizza web site so the time to resize pissas is less than 5 ms.
 * Modify main.js for pizza web site so the frame rate when scrolling is 60 fps.
