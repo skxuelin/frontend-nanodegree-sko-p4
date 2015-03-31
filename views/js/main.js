@@ -603,6 +603,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //SKO: since there are 5 phases for 8 columns we do not need to load 200 objects, 40 should be enough
   //for (var i = 0; i < 200; i++) {
   for (var i = 0; i < 40; i++) {
+
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
